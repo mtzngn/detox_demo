@@ -1,20 +1,26 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 
-const WelcomePage = () => {
+const WelcomePage = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Hello PAGE</Text>
+      <Text>Welcome Page</Text>
+      <Button
+        title="Go to User Page"
+        onPress={() =>
+          navigation.navigate('UserPage', {userId: 1, userName: 'GOLLUM'})
+        }
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 300,
-    width: 100,
-    height: 50,
-    backgroundColor: 'blue',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'lightblue',
   },
 });
 
