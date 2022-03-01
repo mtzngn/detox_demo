@@ -1,6 +1,7 @@
 import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 import WelcomeScreen from './src/Screens/WelcomeScreen/WelcomeScreen';
 import UserScreen from './src/Screens/UserScreen/UserScreen';
@@ -67,7 +68,14 @@ const RootStack = createStackNavigator(
   },
 );
 
-const AppContainer = createAppContainer(RootStack);
+const TabNavigator = createBottomTabNavigator({
+  // Root: RootStack,
+  Profile: ProfileScreen,
+  Settings: SettingsScreen,
+  Test: TestScreen,
+  Feed: FeedScreen,
+});
 
-// Now AppContainer is the main component for React to render
+const AppContainer = createAppContainer(TabNavigator);
+
 export default AppContainer;
