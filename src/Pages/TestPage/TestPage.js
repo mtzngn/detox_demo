@@ -1,10 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 
-const TestPage = () => {
+const TestPage = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>User Page</Text>
+      <Text>Test Page</Text>
+      <Button
+        title="Go to Test Page"
+        onPress={() => navigation.navigate('Welcome')}
+      />
     </View>
   );
 };
