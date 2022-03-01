@@ -5,6 +5,13 @@ class UserScreen extends React.Component {
   static navigationOptions = ({navigation}) => {
     return {
       title: navigation.getParam('otherParam', 'A Nested Details Screen'),
+      headerLeft: () => (
+        <Button
+          onPress={() => navigation.navigate('MyModal')}
+          title="Info"
+          color="#fff"
+        />
+      ),
       headerRight: () => (
         <Button
           //you can't call set state in here cause --this-- is not refering to userscreen in here

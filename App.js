@@ -9,6 +9,7 @@ import ProfileScreen from './src/Screens/ProfileScreen/ProfileScreen';
 import SettingsScreen from './src/Screens/SettingsScreen/SettingsScreen';
 import FeedScreen from './src/Screens/FeedScreen/FeedScreen';
 import {Text, View, Button} from 'react-native';
+import TestModal from './src/Modals/TestModal';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -36,8 +37,7 @@ class HomeScreen extends React.Component {
     );
   }
 }
-
-const AppNavigator = createStackNavigator(
+const MainStack = createStackNavigator(
   {
     Home: HomeScreen,
     User: UserScreen,
@@ -56,4 +56,18 @@ const AppNavigator = createStackNavigator(
   },
 );
 
-export default createAppContainer(AppNavigator);
+const RootStack = createStackNavigator(
+  {
+    Main: MainStack,
+    MyModal: TestModal,
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  },
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+// Now AppContainer is the main component for React to render
+export default AppContainer;
