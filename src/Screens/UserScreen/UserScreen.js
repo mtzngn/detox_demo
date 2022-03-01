@@ -8,7 +8,7 @@ class UserScreen extends React.Component {
       headerLeft: () => (
         <Button
           onPress={() => navigation.navigate('MyModal')}
-          title="Info"
+          title="Modal"
           color="#fff"
         />
       ),

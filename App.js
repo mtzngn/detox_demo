@@ -2,6 +2,7 @@ import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
+import {createSwitchNavigator} from 'react-navigation';
 
 import WelcomeScreen from './src/Screens/WelcomeScreen/WelcomeScreen';
 import UserScreen from './src/Screens/UserScreen/UserScreen';
@@ -33,6 +34,10 @@ class HomeScreen extends React.Component {
               otherParam: 'Title From Param',
             })
           }
+        />
+        <Button
+          title="Go to Profile"
+          onPress={() => this.props.navigation.navigate('Profile')}
         />
       </View>
     );
@@ -69,13 +74,18 @@ const RootStack = createStackNavigator(
 );
 
 const TabNavigator = createBottomTabNavigator({
-  // Root: RootStack,
-  Profile: ProfileScreen,
+  Main: RootStack,
   Settings: SettingsScreen,
   Test: TestScreen,
   Feed: FeedScreen,
 });
 
-const AppContainer = createAppContainer(TabNavigator);
+const SwitchNavigator = createSwitchNavigator({
+  Tab: TabNavigator,
+  Home: HomeScreen,
+  Profile: ProfileScreen,
+});
+
+const AppContainer = createAppContainer(SwitchNavigator);
 
 export default AppContainer;
