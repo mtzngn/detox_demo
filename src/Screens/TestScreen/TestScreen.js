@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 
-const TestPage = ({navigation}) => {
+const TestScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Test Page</Text>
+      <Text>Test Screen</Text>
       <Button
-        title="Go to Test Page"
+        title="Go to Test Screen"
         onPress={() => navigation.navigate('Welcome')}
       />
     </View>
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TestPage;
+export default TestScreen;

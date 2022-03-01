@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const ProfilePage = () => {
+const FeedScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Profile Page</Text>
+      <Text>Feed Screen</Text>
     </View>
   );
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfilePage;
+export default FeedScreen;

@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const FeedPage = () => {
+const SettingScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Feed Page</Text>
+      <Text>Settings Screen</Text>
     </View>
   );
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FeedPage;
+export default SettingScreen;

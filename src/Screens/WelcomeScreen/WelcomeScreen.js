@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 
-const WelcomePage = ({navigation}) => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Welcome Page</Text>
+      <Text>Welcome Screen</Text>
       <Button
-        title="Go to User Page"
+        title="Go to User Screen"
         onPress={() =>
-          navigation.navigate('UserPage', {userId: 1, userName: 'GOLLUM'})
+          navigation.navigate('UserScreen', {userId: 1, userName: 'GOLLUM'})
         }
       />
     </View>
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomePage;
+export default WelcomeScreen;

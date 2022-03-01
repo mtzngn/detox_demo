@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const SettingPage = () => {
+const UserScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Settings Page</Text>
+      <Text>User Screen</Text>
     </View>
   );
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SettingPage;
+export default UserScreen;
