@@ -14,9 +14,6 @@
     "e2e:run-android": "detox test --configuration android"
   },
   "dependencies": {
-    "@react-navigation/bottom-tabs": "^6.2.0",
-    "@react-navigation/native": "^6.0.6",
-    "@react-navigation/native-stack": "^6.2.5",
     "detox": "^19.4.2",
     "react": "17.0.2",
     "react-native": "0.67.0",
