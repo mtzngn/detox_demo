@@ -11,13 +11,26 @@ import FeedScreen from './src/Screens/FeedScreen/FeedScreen';
 import {Text, View, Button} from 'react-native';
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
+  componentDidMount() {
+    console.log('home screen mounted');
+  }
+  componentWillUnmount() {
+    console.log('home screen will unmount called');
+  }
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Home Screen</Text>
         <Button
           title="Go to UserPage"
-          onPress={() => this.props.navigation.navigate('User')}
+          onPress={() =>
+            this.props.navigation.navigate('User', {
+              otherParam: 'Title From Param',
+            })
+          }
         />
       </View>
     );
@@ -31,6 +44,15 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
   },
 );
 
