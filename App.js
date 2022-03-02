@@ -18,7 +18,7 @@ import NotificationScreen from './src/Drawers/NotificationScreen';
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
-    drawerLabel: 'hello',
+    drawerLabel: 'Home',
   };
   // componentDidMount() {
   //   console.log('home screen mounted');
@@ -42,21 +42,31 @@ class HomeScreen extends React.Component {
           title="Go to Profile"
           onPress={() => this.props.navigation.navigate('Profile')}
         />
-        <Button
+        {/* <Button
           title="Open Drawer"
           onPress={() => this.props.navigation.navigate('Notification')}
-        />
+        /> */}
       </View>
     );
   }
 }
-const MainStack = createStackNavigator(
+const DrawerNavigator = createDrawerNavigator(
   {
     Home: HomeScreen,
-    User: UserScreen,
+    Notification: NotificationScreen,
   },
   {
     initialRouteName: 'Home',
+  },
+);
+
+const MainStack = createStackNavigator(
+  {
+    Drawer: DrawerNavigator,
+    User: UserScreen,
+  },
+  {
+    // initialRouteName: 'Home',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
@@ -94,11 +104,6 @@ const SwitchNavigator = createSwitchNavigator({
   Profile: ProfileScreen,
 });
 
-const DrawerNavigator = createDrawerNavigator({
-  Home: HomeScreen,
-  Notification: NotificationScreen,
-});
-
-const AppContainer = createAppContainer(DrawerNavigator);
+const AppContainer = createAppContainer(SwitchNavigator);
 
 export default AppContainer;
