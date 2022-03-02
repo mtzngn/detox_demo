@@ -9,32 +9,35 @@ describe('Example', () => {
     await device.reloadReactNative();
   });
 
-  it('increase button should be visible', async () => {
-    await expect(element(by.text('Increase'))).toBeVisible();
+  it('should render', async () => {
+    await expect(element(by.text('Home Screen'))).toBeVisible();
   });
 
-  it('decrease button should be visible', async () => {
-    await expect(element(by.text('Decrease'))).toBeVisible();
+  it('can navigate to user page', async () => {
+    await expect(element(by.text('Home Screen'))).toBeVisible();
+    // await expect(element(by.text('Go to UserPage'))).toBeVisible();
+    await element(by.text('Go to UserPage')).tap();
+    await expect(element(by.text('User Screen'))).toBeVisible();
   });
 
-  it('should allow to increase', async () => {
-    await element(by.text('Increase')).tap();
-    await element(by.text('Increase')).tap();
-    await element(by.text('Increase')).tap();
-    await expect(element(by.text('Current Value is : 3'))).toBeVisible();
-  });
+  // it('should allow to increase', async () => {
+  //   await element(by.text('Increase')).tap();
+  //   await element(by.text('Increase')).tap();
+  //   await element(by.text('Increase')).tap();
+  //   await expect(element(by.text('Current Value is : 3'))).toBeVisible();
+  // });
 
-  it('should allow to decrase', async () => {
-    await element(by.text('Decrease')).tap();
-    await element(by.text('Decrease')).tap();
-    await element(by.text('Decrease')).tap();
-    await expect(element(by.text('Current Value is : -3'))).toBeVisible();
-  });
+  // it('should allow to decrase', async () => {
+  //   await element(by.text('Decrease')).tap();
+  //   await element(by.text('Decrease')).tap();
+  //   await element(by.text('Decrease')).tap();
+  //   await expect(element(by.text('Current Value is : -3'))).toBeVisible();
+  // });
 
-  it('should allow for increase than decrease', async () => {
-    await element(by.text('Increase')).tap();
-    await element(by.text('Increase')).tap();
-    await element(by.text('Decrease')).tap();
-    await expect(element(by.text('Current Value is : 1'))).toBeVisible();
-  });
+  // it('should allow for increase than decrease', async () => {
+  //   await element(by.text('Increase')).tap();
+  //   await element(by.text('Increase')).tap();
+  //   await element(by.text('Decrease')).tap();
+  //   await expect(element(by.text('Current Value is : 1'))).toBeVisible();
+  // });
 });
