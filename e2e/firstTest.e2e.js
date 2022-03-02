@@ -14,8 +14,8 @@ describe('Example', () => {
   });
 
   it('can navigate to user page', async () => {
-    await expect(element(by.text('GO TO USERPAGE'))).toBeVisible();
-    await element(by.text('GO TO USERPAGE')).tap();
+    await expect(element(by.text('Go to User Page'))).toBeVisible();
+    await element(by.text('Go to User Page')).tap();
     await expect(element(by.text('User Screen'))).toBeVisible();
   });
 

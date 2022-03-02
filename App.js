@@ -10,53 +10,21 @@ import TestScreen from './src/Screens/TestScreen/TestScreen';
 import ProfileScreen from './src/Screens/ProfileScreen/ProfileScreen';
 import SettingsScreen from './src/Screens/SettingsScreen/SettingsScreen';
 import FeedScreen from './src/Screens/FeedScreen/FeedScreen';
-import {Text, View, Button, Image} from 'react-native';
+import HomeScreen from './src/Screens/HomeScreen/HomeScreen';
 import TestModal from './src/Modals/TestModal';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import NotificationScreen from './src/Drawers/NotificationScreen';
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Home',
-    drawerLabel: 'Home',
-  };
-  // componentDidMount() {
-  //   console.log('home screen mounted');
-  // }
-  // componentWillUnmount() {
-  //   console.log('home screen will unmount called');
-  // }
-  render() {
-    return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Home Screen</Text>
-        <Button
-          title="Go to UserPage"
-          onPress={() =>
-            this.props.navigation.navigate('User', {
-              otherParam: 'Title From Param',
-            })
-          }
-        />
-        <Button
-          title="Go to Profile"
-          onPress={() => this.props.navigation.navigate('Profile')}
-        />
-        {/* <Button
-          title="Open Drawer"
-          onPress={() => this.props.navigation.navigate('Notification')}
-        /> */}
-      </View>
-    );
-  }
-}
 const DrawerNavigator = createDrawerNavigator(
   {
     Home: HomeScreen,
     Notification: NotificationScreen,
+    MyModal: TestModal,
   },
   {
     initialRouteName: 'Home',
+    mode: 'modal',
+    headerMode: 'none',
   },
 );
 
@@ -66,7 +34,7 @@ const MainStack = createStackNavigator(
     User: UserScreen,
   },
   {
-    // initialRouteName: 'Home',
+    initialRouteName: 'Drawer',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#f4511e',
@@ -79,23 +47,23 @@ const MainStack = createStackNavigator(
   },
 );
 
-const RootStack = createStackNavigator(
-  {
-    Main: MainStack,
-    MyModal: TestModal,
-  },
-  {
-    initialRouteName: 'Main',
-    mode: 'modal',
-    headerMode: 'none',
-  },
-);
+// const HomeAndModalStack = createStackNavigator(
+//   {
+//     Main: MainStack,
+//     MyModal: TestModal,
+//   },
+//   {
+//     initialRouteName: 'Main',
+//     mode: 'modal',
+//     headerMode: 'none',
+//   },
+// );
 
 const TabNavigator = createBottomTabNavigator({
-  Main: RootStack,
-  Settings: SettingsScreen,
-  Test: TestScreen,
+  Home: MainStack,
   Feed: FeedScreen,
+  Search: TestScreen,
+  Settings: SettingsScreen,
 });
 
 const SwitchNavigator = createSwitchNavigator({
