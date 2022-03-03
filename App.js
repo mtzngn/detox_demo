@@ -4,7 +4,6 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createSwitchNavigator} from 'react-navigation';
 
-import WelcomeScreen from './src/Screens/WelcomeScreen/WelcomeScreen';
 import UserScreen from './src/Screens/UserScreen/UserScreen';
 import TestScreen from './src/Screens/TestScreen/TestScreen';
 import ProfileScreen from './src/Screens/ProfileScreen/ProfileScreen';
@@ -48,18 +47,6 @@ const MainStack = createStackNavigator(
   },
 );
 
-// const HomeAndModalStack = createStackNavigator(
-//   {
-//     Main: MainStack,
-//     MyModal: TestModal,
-//   },
-//   {
-//     initialRouteName: 'Main',
-//     mode: 'modal',
-//     headerMode: 'none',
-//   },
-// );
-
 const TabNavigator = createBottomTabNavigator(
   {
     Home: MainStack,
@@ -69,23 +56,23 @@ const TabNavigator = createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
-      tabBarIcon: () => {
-        const {routeName} = navigation.state;
-        switch (routeName) {
-          case 'Home':
-            return <Icon name="home" size={30} color="gray" />;
-          case 'Feed':
-            return (
-              <Icon name="feed" size={30} color="gray" testID="feedTabIcon" />
-            );
-          case 'Search':
-            return <Icon name="search" size={25} color="gray" />;
-          case 'Settings':
-            return <Icon name="adjust" size={30} color="gray" />;
-          default:
-            return;
-        }
-      },
+      // tabBarIcon: () => {
+      //   const {routeName} = navigation.state;
+      //   switch (routeName) {
+      //     case 'Home':
+      //       return <Icon name="home" size={30} color="gray" />;
+      //     case 'Feed':
+      //       return (
+      //         <Icon name="feed" size={30} color="gray" testID="feedTabIcon" />
+      //       );
+      //     case 'Search':
+      //       return <Icon name="search" size={25} color="gray" />;
+      //     case 'Settings':
+      //       return <Icon name="adjust" size={30} color="gray" />;
+      //     default:
+      //       return;
+      //   }
+      // },
       tabBarOptions: {
         activeTintColor: 'lightblue',
         inactiveTintColor: 'gray',

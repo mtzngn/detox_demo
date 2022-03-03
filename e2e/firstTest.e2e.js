@@ -38,7 +38,28 @@ describe('training tests', () => {
     await expect(element(by.text('count 2'))).toBeVisible();
   });
 
-  // it('should allow to navigate to feed tab', async () => {
-  //   await element(by.id('feedTabIcon')).tap();
-  // });
+  it('should allow to navigate to feed tab', async () => {
+    await element(by.label('Feed')).tap();
+    await expect(element(by.text('Feed Screen'))).toBeVisible();
+  });
+
+  it('should allow to navigate to Search tab', async () => {
+    await element(by.label('Search')).tap();
+    await expect(element(by.text('Test Screen'))).toBeVisible();
+  });
+
+  it('should allow to navigate to Settings tab', async () => {
+    await element(by.label('Settings')).tap();
+    await expect(element(by.text('Settings Screen'))).toBeVisible();
+  });
+
+  it('should allow to submit the form', async () => {
+    await element(by.label('Settings')).tap();
+    await element(by.text('Name')).tap();
+    await element(by.id('nameInput')).typeText('mordor');
+    await element(by.text('Password')).tap();
+    await element(by.id('passwordInput')).typeText('dumb123');
+    await element(by.text('Submit')).tap();
+    await expect(element(by.text('SUCCESS!'))).toBeVisible();
+  });
 });

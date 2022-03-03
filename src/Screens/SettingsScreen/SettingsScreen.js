@@ -39,12 +39,14 @@ class SettingScreen extends React.Component {
               onChangeText={text => this.onNameChange(text)}
               value={this.state.name}
               placeholder="Name"
+              testID="nameInput"
             />
             <TextInput
               style={styles.input}
               onChangeText={text => this.onPasswordChange(text)}
               value={this.state.password}
               placeholder="Password"
+              testID="passwordInput"
             />
             <TouchableOpacity
               style={styles.submit}
@@ -54,7 +56,7 @@ class SettingScreen extends React.Component {
           </SafeAreaView>
         ) : (
           <SafeAreaView style={styles.submitted}>
-            <Text>Thank you for updating!</Text>
+            <Text>SUCCESS!</Text>
             <Icon name="rocket" size={30} color="#000" style={styles.icon} />
           </SafeAreaView>
         )}

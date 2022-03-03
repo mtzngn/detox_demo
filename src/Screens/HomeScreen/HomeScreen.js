@@ -1,10 +1,16 @@
 import React from 'react';
+import {LogBox} from 'react-native';
 import {View, Text, TouchableOpacity, Button} from 'react-native';
+LogBox.ignoreAllLogs();
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
   };
+
+  // Ignore log notification by message
+
+  //Ignore all log notifications
 
   render() {
     return (
