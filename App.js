@@ -14,6 +14,7 @@ import HomeScreen from './src/Screens/HomeScreen/HomeScreen';
 import TestModal from './src/Modals/TestModal';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import NotificationScreen from './src/Drawers/NotificationScreen';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const DrawerNavigator = createDrawerNavigator(
   {
@@ -59,12 +60,42 @@ const MainStack = createStackNavigator(
 //   },
 // );
 
-const TabNavigator = createBottomTabNavigator({
-  Home: MainStack,
-  Feed: FeedScreen,
-  Search: TestScreen,
-  Settings: SettingsScreen,
-});
+const TabNavigator = createBottomTabNavigator(
+  {
+    Home: MainStack,
+    Feed: FeedScreen,
+    Search: TestScreen,
+    Settings: SettingsScreen,
+  },
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      tabBarIcon: () => {
+        const {routeName} = navigation.state;
+        switch (routeName) {
+          case 'Home':
+            return <Icon name="home" size={30} color="gray" />;
+          case 'Feed':
+            return <Icon name="feed" size={30} color="gray" />;
+          case 'Search':
+            return <Icon name="search" size={25} color="gray" />;
+          case 'Settings':
+            return <Icon name="adjust" size={30} color="gray" />;
+          default:
+            return;
+        }
+      },
+      tabBarOptions: {
+        activeTintColor: 'lightblue',
+        inactiveTintColor: 'gray',
+        activeBackgroundColor: 'white',
+        inactiveBackgroundColor: 'lightblue',
+        labelStyle: {
+          fontSize: 10,
+        },
+      },
+    }),
+  },
+);
 
 const SwitchNavigator = createSwitchNavigator({
   Tab: TabNavigator,

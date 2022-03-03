@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Button} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -18,17 +18,12 @@ class HomeScreen extends React.Component {
               otherParam: 'Title From Param',
             })
           }>
-          <Text>Go to User Page</Text>
+          <Text style={{color: 'red', margin: 10}}>Go to User Page</Text>
         </TouchableOpacity>
         <Button
           title="Go to Profile"
           onPress={() => this.props.navigation.navigate('Profile')}
         />
-        <Icon name="home" size={30} color="#900" />
-        {/* <Button
-            title="Open Drawer"
-            onPress={() => this.props.navigation.navigate('Notification')}
-          /> */}
       </View>
     );
   }
