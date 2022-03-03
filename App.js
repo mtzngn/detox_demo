@@ -56,23 +56,21 @@ const TabNavigator = createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
-      // tabBarIcon: () => {
-      //   const {routeName} = navigation.state;
-      //   switch (routeName) {
-      //     case 'Home':
-      //       return <Icon name="home" size={30} color="gray" />;
-      //     case 'Feed':
-      //       return (
-      //         <Icon name="feed" size={30} color="gray" testID="feedTabIcon" />
-      //       );
-      //     case 'Search':
-      //       return <Icon name="search" size={25} color="gray" />;
-      //     case 'Settings':
-      //       return <Icon name="adjust" size={30} color="gray" />;
-      //     default:
-      //       return;
-      //   }
-      // },
+      tabBarIcon: () => {
+        const {routeName} = navigation.state;
+        switch (routeName) {
+          case 'Home':
+            return <Icon name="home" size={30} color="gray" />;
+          case 'Feed':
+            return <Icon name="feed" size={30} color="gray" />;
+          case 'Search':
+            return <Icon name="search" size={25} color="gray" />;
+          case 'Settings':
+            return <Icon name="adjust" size={30} color="gray" />;
+          default:
+            return;
+        }
+      },
       tabBarOptions: {
         activeTintColor: 'lightblue',
         inactiveTintColor: 'gray',
