@@ -16,7 +16,7 @@ class UserScreen extends React.Component {
         <Button
           //you can't call set state in here cause --this-- is not refering to userscreen in here
           onPress={navigation.getParam('increaseCount')}
-          title="Info"
+          title="INCREASE"
           color="#fff"
         />
       ),

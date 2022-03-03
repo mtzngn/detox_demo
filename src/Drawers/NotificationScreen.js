@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Image, StyleSheet, View} from 'react-native';
+import {Button, StyleSheet, View} from 'react-native';
 
 class NotificationScreen extends React.Component {
   static navigationOptions = {

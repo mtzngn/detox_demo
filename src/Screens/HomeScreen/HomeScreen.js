@@ -1,11 +1,9 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Button} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
-    // drawerLabel: 'Home',
   };
 
   render() {

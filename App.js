@@ -75,7 +75,9 @@ const TabNavigator = createBottomTabNavigator(
           case 'Home':
             return <Icon name="home" size={30} color="gray" />;
           case 'Feed':
-            return <Icon name="feed" size={30} color="gray" />;
+            return (
+              <Icon name="feed" size={30} color="gray" testID="feedTabIcon" />
+            );
           case 'Search':
             return <Icon name="search" size={25} color="gray" />;
           case 'Settings':
@@ -89,9 +91,6 @@ const TabNavigator = createBottomTabNavigator(
         inactiveTintColor: 'gray',
         activeBackgroundColor: 'white',
         inactiveBackgroundColor: 'lightblue',
-        labelStyle: {
-          fontSize: 10,
-        },
       },
     }),
   },

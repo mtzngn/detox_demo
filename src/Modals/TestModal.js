@@ -8,7 +8,7 @@ class TestModal extends React.Component {
         <Text style={{fontSize: 30}}>This is a modal!</Text>
         <Button
           onPress={() => this.props.navigation.goBack()}
-          title="Dismiss"
+          title="DISMISS"
         />
       </View>
     );

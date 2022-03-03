@@ -1,13 +1,21 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const FeedScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Feed Screen</Text>
-    </View>
-  );
-};
+class FeedScreen extends React.Component {
+  static navigationOptions = () => {
+    return {
+      tabBarTestID: 'FeedTab',
+    };
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Feed Screen</Text>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
