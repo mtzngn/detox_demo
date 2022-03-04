@@ -14,21 +14,33 @@ import TestModal from './src/Modals/TestModal';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import NotificationScreen from './src/Drawers/NotificationScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
+
+const SwitchNavigator = createSwitchNavigator(
+  {
+    // Tab: TabNavigator,
+    Home: HomeScreen,
+    Profile: ProfileScreen,
+  },
+  {
+    headerMode: 'screen',
+  },
+);
 
 const DrawerNavigator = createDrawerNavigator(
   {
     Home: HomeScreen,
     Notification: NotificationScreen,
     MyModal: TestModal,
+    Switch: SwitchNavigator,
   },
   {
     initialRouteName: 'Home',
     mode: 'modal',
-    headerMode: 'none',
   },
 );
 
-const MainStack = createStackNavigator(
+const HomeStack = createStackNavigator(
   {
     Drawer: DrawerNavigator,
     User: UserScreen,
@@ -36,6 +48,7 @@ const MainStack = createStackNavigator(
   {
     initialRouteName: 'Drawer',
     defaultNavigationOptions: {
+      title: 'My Project',
       headerStyle: {
         backgroundColor: '#f4511e',
       },
@@ -46,13 +59,22 @@ const MainStack = createStackNavigator(
     },
   },
 );
+const FeedStack = createStackNavigator({
+  Feed: FeedScreen,
+});
+const TestStack = createStackNavigator({
+  Search: TestScreen,
+});
+const SettingsStack = createStackNavigator({
+  Settings: SettingsScreen,
+});
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Home: MainStack,
-    Feed: FeedScreen,
-    Search: TestScreen,
-    Settings: SettingsScreen,
+    Home: HomeStack,
+    Feed: FeedStack,
+    Search: TestStack,
+    Settings: SettingsStack,
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -60,33 +82,34 @@ const TabNavigator = createBottomTabNavigator(
         const {routeName} = navigation.state;
         switch (routeName) {
           case 'Home':
-            return <Icon name="home" size={30} color="gray" />;
+            return <SimpleIcon name="home" size={20} color="black" />;
           case 'Feed':
-            return <Icon name="feed" size={30} color="gray" />;
+            return <SimpleIcon name="feed" size={20} color="black" />;
           case 'Search':
-            return <Icon name="search" size={25} color="gray" />;
+            return <SimpleIcon name="magnifier" size={20} color="black" />;
           case 'Settings':
-            return <Icon name="adjust" size={30} color="gray" />;
+            return <SimpleIcon name="settings" size={20} color="black" />;
           default:
             return;
         }
       },
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
       tabBarOptions: {
-        activeTintColor: 'lightblue',
-        inactiveTintColor: 'gray',
-        activeBackgroundColor: 'white',
-        inactiveBackgroundColor: 'lightblue',
+        activeTintColor: 'black',
+        inactiveTintColor: 'black',
+        activeBackgroundColor: 'lightgray',
+        inactiveBackgroundColor: 'white',
       },
     }),
   },
 );
 
-const SwitchNavigator = createSwitchNavigator({
-  Tab: TabNavigator,
-  Home: HomeScreen,
-  Profile: ProfileScreen,
-});
-
-const AppContainer = createAppContainer(SwitchNavigator);
+const AppContainer = createAppContainer(TabNavigator);
 
 export default AppContainer;
